@@ -1,42 +1,23 @@
 # Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+node_modules
+npm-debug.log
+yarn-error.log
 
-# Build outputs
-dist/
-build/
-.svelte-kit/
-.vercel/
-.netlify/
+# SvelteKit build outputs
+.svelte-kit
+build
 
-# Firebase
-.firebase/
-firebase-debug.log
-
-# Environment variables
-.env
-.env.*.local
-
-# OS / Editor junk
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*.swn
-
-# VSCode / JetBrains
-.vscode/
-.idea/
+# Firebase cache
+.firebase
 
 # Logs
-logs/
 *.log
+*.tmp
 
-# Coverage / testing
-coverage/
-*.lcov
+# OS-specific
+.DS_Store
+Thumbs.db
 
-# Misc
-*.local
+# Env files
+.env
+.env.*

@@ -1,0 +1,43 @@
+ <section class="projects">
+      <h2>Projects</h2>
+    </section>
+    <div class="project-list">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <h3>Engineering Expo Website (Virginia Tech SEC)</h3>
+        <li>
+          Redesigned and modernized the Engineering Expo website using <b>Svelte, JavaScript, and Ensemble CMS</b>, 
+          improving performance and user experience for 400+ companies and thousands of students.
+        </li>
+        <!-- <a href="https://github.com/your-repo" target="_blank">View Code</a> -->
+      </div>
+  
+      <!-- Project 2 -->
+      <div class="project-card">
+        <h3>Cell Tap Validator – BOLT Controls Team</h3>
+        <li>
+          Worked on PCB redesign in <b>Altium</b> for higher-voltage applications. 
+          Improved system safety and functionality for student-run electric vehicle team.
+        </li>
+      </div>
+  
+      <!-- Project 3 -->
+      <div class="project-card">
+        <h3>LLM Math Generator</h3>
+        <li>
+          Built a pipeline combining <b>Python, Lean 4, and LLaMA models</b> to generate unique math problems, 
+          verify correctness, and categorize them into datasets for education/research use.
+        </li>
+        <!-- <a href="https://github.com/your-llm-math-repo" target="_blank">GitHub Repo</a> -->
+      </div>
+  
+      <!-- Project 4 -->
+      <div class="project-card">
+        <h3>C&C HTSx (Customs AI Tool)</h3>
+        <li>
+          Developed an interactive dashboard with <b>React, Mantine, and Firebase</b> to classify HTS customs codes 
+          using AI for compliance automation.
+        </li>
+      </div>
+  
+      <!-- Add more projects as needed -->

@@ -55,7 +55,7 @@
   <div use:inViewport={(v) => (videoVisible = v)} class="fade-in" class:show={videoVisible}>
     <section class="video-section">
       <h2>MY TRAVEL VLOGS</h2>
-      <p>Here are some of my travel vlogs from my trips around the world. Video editing has become one of my hobbies since I was little. For every place that I travel to, I put together clips so that when I'm older I can look back on my memories</p>
+      <p>Here are some of my travel vlogs from my trips around the world. Video editing has become one of my hobbies since I was little. For every place that I travel to, I put together clips that I've filmed.</p>
       <div class="video-grid">
         <!-- First video -->
         <div class="video-container">

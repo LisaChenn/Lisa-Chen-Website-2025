@@ -12,8 +12,7 @@
   <!-- iOS home screen icon (optional) -->
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- (Optional) PWA manifest if you have one -->
-  <!-- <link rel="manifest" href="/site.webmanifest" /> -->
+  <link rel="manifest" href="/site.webmanifest" />
 </svelte:head>
 
   

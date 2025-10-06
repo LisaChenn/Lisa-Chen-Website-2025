@@ -10,18 +10,18 @@ export type BlogPost = {
   export const posts: BlogPost[] = [
     {
       slug: 'hello-world',
-      title: 'Hello, World',
-      date: '2025-10-05',
-      description: 'Kickoff post for my notes',
-      tags: ['intro', 'updates'],
+      title: 'Thoughts on AI',
+      date: '2025-10-06',
+      description: 'Ethics and future of AI.',
+      tags: ['AI', 'ethics'],
       cover: '' // e.g. '/images/blog/hello.jpg'
     },
     {
       slug: 'rlc-notes',
-      title: 'Quick RLC Notes',
+      title: 'The Republic of Plato',
       date: '2025-10-05',
-      description: 'Underdamped vs overdamped, quick formulas, intuition.',
-      tags: ['ece', 'circuits']
+      description: 'Notes on Book I',
+      tags: ['ethics', 'philosophy'],
     }
   ];
   

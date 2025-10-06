@@ -101,8 +101,13 @@
     --border: #444; --accent: #f7f7f7; --focus: #9ad0ff; --radius: 16px;
   }
   .main {
-    background-color: var(--bg);
-    min-height: 100svh; height: 100dvh; height: 100vh;
+    /* lock these for THIS page */
+    --bg: #343434;
+    --card: #2b2b2b;
+
+    background: var(--bg);
+    min-height: 100svh;
+    height: 100dvh;
     margin: 0;
     padding: max(env(safe-area-inset-top), 100px) 2rem max(env(safe-area-inset-bottom), 2rem);
     box-sizing: border-box;
@@ -126,12 +131,24 @@
   .grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
   @media (max-width: 1000px){ .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px){ .grid { grid-template-columns: 1fr; } }
+  /* CARD: explicitly set hover on the card only */
   .card {
-    display: grid; grid-template-rows: auto 1fr; text-decoration: none; background: var(--card);
-    border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
-    transition: transform 120ms, box-shadow 200ms, border-color 200ms;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 120ms, box-shadow 200ms, border-color 200ms, background-color 200ms;
   }
-  .card:hover { transform: translateY(-2px); box-shadow: rgba(0,0,0,.25) 0 8px 15px; border-color: #555; }
+
+  .card:hover {
+    background-color: color-mix(in srgb, var(--card) 88%, white 12%);
+    transform: translateY(-2px);
+    box-shadow: rgba(75, 75, 75, 0.25) 0 8px 15px;
+    border-color: #555;
+  }
   .thumb { background-size: cover; background-position: center; aspect-ratio: 16/9; }
   .body { padding: 1rem; display: grid; gap: .5rem; }
   h2 { margin: 0; color: var(--fg); font-size: 1.2rem; font-weight: 600; }
@@ -142,4 +159,5 @@
   .tag.more { opacity: .7; }
   @supports (-webkit-touch-callout: none) { .main { min-height: -webkit-fill-available; } }
   .empty{ color: #ffffff; }
+
 </style>

@@ -10,7 +10,6 @@
 <Navbar />
 
 <section class="main">
-  <!-- About Section -->
    <hr> 
   <div use:inViewport={(v) => (aboutVisible = v)} class="fade-in" class:show={aboutVisible}>
     <div class="about-container">

@@ -1,58 +1,120 @@
-<script>
-  import hallway from '$lib/assets/images/hallway5.jpg';
+<script lang="ts">
+  let flipped = false;
+  const toggle = () => (flipped = !flipped);
 </script>
 
-<section
-  class="hallway"
-  style={`background-image: url(${hallway}); background-size: cover; background-position: center;`}
->
-  <div class="overlay">
-    <h1>Welcome to think.</h1>
-    <a href="/about" class="button-28">Get Started</a>
+<div class="content">
+  <div class="card" class:flipped on:click={toggle} aria-label="flip card">
+    <div class="card__side card__side--front">
+      <div class="card__cont">
+        <span class="blue">alert</span>
+        <span>(<span class="green">'Hello! Welcome to Lisa's Website.'</span>)</span>
+      </div>
+    </div>
+
+    <div class="card__side card__side--back">
+      <div class="card__cta">
+        <p>
+          <span class="purple">const</span> aboutMe <span class="cyan">=</span> 
+        </p>
+          <a href="/about" class="button-28">Get Started</a>
+          
+        
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
 <style>
-  .hallway {
-    /* Fix iOS Safari viewport height issues */
-    min-height: 100svh;          /* modern small viewport unit */
-    height: 100dvh;              /* dynamic viewport height */
-    /* fallback for older browsers */
-    height: 100vh;
+* {
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
 
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
-    position: relative;
-  }
+:root{
+  --blue: #29b6f6;
+  --green: #9ccc65;
+  --purple: #ba68c8;
+  --orange: #f57c00;
+  --red: #ef5350;
+  --cyan: #4dd0e1;
+  --bg-light: #ffa726;
+  --bg-dark: #ff9800;
+}
 
-  /* Responsive heading */
-  h1{
-    /* desktop stays near original, mobile scales down */
-    font-size: clamp(2rem, 8vw, 4rem);
-    margin: 0;
-    padding-bottom: 1.25rem;
-    font-weight: 400;
-  }
+body {
+  background-image: linear-gradient(to bottom right, var(--bg-dark), var(--bg-light));
+}
 
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.40);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+.blue { color: var(--blue); }
+.green { color: var(--green); }
+.purple { color: var(--purple); }
+.cyan { color: var(--cyan); }
+.red { color: var(--red); }
 
-    /* Keep content off the edges + handle notches */
-    padding: max(env(safe-area-inset-top), 1rem) 1rem
-             max(env(safe-area-inset-bottom), 2rem);
-  }
+.content {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .button-28 {
+.card {
+  perspective: 150rem;
+  height: 20rem;
+  width: 30rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.card__side {
+  height: 15rem;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 30rem;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.4);
+}
+
+.card__side--front { background-color: #1c1c1c; }
+.card__side--back  { background-color: #1c1c1c; transform: rotateY(180deg); }
+
+/* hover flip (desktop) */
+.card:hover .card__side--front { transform: rotateY(-180deg); }
+.card:hover .card__side--back  { transform: rotateY(0deg); }
+
+/* tap-to-flip (mobile) */
+.card.flipped .card__side--front { transform: rotateY(-180deg); }
+.card.flipped .card__side--back  { transform: rotateY(0deg); }
+
+.card__cont {
+  height: 15rem;
+  background-color: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__cta {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+  color: white;
+}
+
+.card__cta p { margin-left: 1rem; }
+.card__cta .space { margin-left: 2rem; }
+
+
+.button-28 {
     appearance: none;
     background-color: #2c2c2c;
     border: 0;
@@ -80,7 +142,7 @@
 
     /* Replace fixed 20% width with responsive limits */
     width: auto;
-    max-width: 90vw;
+    max-width: 80vw;
   }
 
   .button-28:hover {
@@ -104,7 +166,7 @@
     .overlay { gap: 0.75rem; }
     .button-28 {
       width: 100%;
-      max-width: 420px; /* keeps it from being too wide on phablets */
+      max-width: 300px; /* keeps it from being too wide on phablets */
     }
   }
 

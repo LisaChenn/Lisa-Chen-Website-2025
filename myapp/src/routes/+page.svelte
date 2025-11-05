@@ -2,7 +2,7 @@
   let flipped = false;
   const toggle = () => (flipped = !flipped);
 </script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <div class="content">
   <div class="card" class:flipped on:click={toggle} aria-label="flip card">
     <div class="card__side card__side--front">
@@ -55,6 +55,7 @@ body {
 
 .content {
   height: 100vh;
+
   color: white;
   display: flex;
   justify-content: center;
@@ -128,10 +129,8 @@ body {
     line-height: normal;
     margin: 0;
 
-    /* Mobile-friendly touch target */
     min-height: 52px;
 
-    /* Let the button size to text on desktop, be fluid on mobile */
     padding: 14px 100px;
     text-align: center;
     text-decoration: none;
@@ -161,18 +160,17 @@ body {
     pointer-events: none;
   }
 
-  /* Extra tweaks for small screens */
   @media (max-width: 600px) {
-    .overlay { gap: 0.75rem; }
+    .content { gap: 0.75rem; }
     .button-28 {
       width: 100%;
-      max-width: 300px; /* keeps it from being too wide on phablets */
+      max-width: 300px; 
     }
   }
 
   /* Older iOS fallback */
   @supports (-webkit-touch-callout: none) {
-    .hallway {
+    .content {
       min-height: -webkit-fill-available;
     }
   }

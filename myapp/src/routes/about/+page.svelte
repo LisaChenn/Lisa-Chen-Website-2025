@@ -10,7 +10,6 @@
 <Navbar />
 
 <section class="main">
-   <hr> 
   <div use:inViewport={(v) => (aboutVisible = v)} class="fade-in" class:show={aboutVisible}>
     <div class="about-container">
         <img class="pic" src={pic} alt="pic of me" />
@@ -122,7 +121,7 @@
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    flex-direction: column; /* stack items vertically; remove if you want a row */
+    flex-direction: column; 
   }
 }
 

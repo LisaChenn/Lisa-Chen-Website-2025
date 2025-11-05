@@ -1,15 +1,13 @@
 <script>
   import Navbar from '$lib/Navbar.svelte';
 
-  // form state (optional, but handy if you want to extend later)
   let name = '';
   let email = '';
   let subject = '';
   let message = '';
 
-  // Simple no-backend submit: opens the user's email client
   function handleSubmit() {
-    const to = 'hello@yourdomain.com'; // <-- change this
+    const to = 'lisachen077@gmail.com'; 
     const mailSubject = subject || 'Contact from think.';
     const mailBody = `Name: ${name}
 Email: ${email}
@@ -43,7 +41,6 @@ ${message}`;
           <div class="socials">
             <a class="chip" href="https://www.linkedin.com/in/lisa-chen077/" rel="noopener">LinkedIn</a>
             <a class="chip" href="https://github.com/LisaChenn" rel="noopener">GitHub</a>
-            <!-- <a class="chip" href="#" rel="noopener">X</a> -->
           </div>
         </div>
       </div>
@@ -94,11 +91,8 @@ ${message}`;
       </label>
 
       <button class="btn" type="submit">Send Message</button>
-
-      <!-- If you prefer Formspree now, uncomment this and remove on:submit above:
-      <form class="form" action="https://formspree.io/f/yourId" method="POST"> ... </form>
-      -->
     </form>
+    <p class="spacer"></p>
   </div>
 </section>
 
@@ -116,7 +110,7 @@ ${message}`;
 
   .main {
     background-color: var(--bg);
-    min-height: 100svh; /* better on iOS */
+    min-height: 100svh; /* iOS */
     height: 100dvh;
     height: 100vh; /* fallback */
     width: 100%;
@@ -129,7 +123,7 @@ ${message}`;
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
@@ -273,7 +267,10 @@ ${message}`;
     box-shadow: none;
     transform: translateY(0);
   }
-
+  .spacer{
+    padding-bottom: 15%;
+    margin-bottom: 15%;
+  }
   /* iOS older fallback */
   @supports (-webkit-touch-callout: none) {
     .main { min-height: -webkit-fill-available; }

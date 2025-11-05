@@ -1,16 +1,10 @@
 import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-const config = {
-  preprocess: vitePreprocess(),
+const base = '/Lisa-Chen-Website-2025'; // project site base
+
+export default {
   kit: {
-    adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: 'index.html', // 👈 important for SPA routing
-      strict: false
-    })
+    adapter: adapter({ pages: 'docs', assets: 'docs', fallback: '404.html' }),
+    paths: { base, relative: true } // relative helps with asset URLs on Pages
   }
 };
-
-export default config;

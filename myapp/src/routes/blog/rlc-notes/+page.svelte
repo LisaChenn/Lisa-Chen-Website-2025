@@ -1,7 +1,7 @@
 <script lang="ts">
     import Navbar from '$lib/Navbar.svelte';
   
-    const published = new Date('2025-10-05'); // update if needed
+    const published = new Date('2025-10-05'); //the date
     const publishedLabel = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(published);
   </script>
   

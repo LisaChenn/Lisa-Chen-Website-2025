@@ -1,1 +1,0 @@
-import{f as o,a as s}from"../chunks/BYtvtqGt.js";import"../chunks/C7WVXHeY.js";import{N as e,W as m}from"../chunks/BsH6kw9D.js";import{N as n}from"../chunks/D4ciADiu.js";var i=o('<!> <section class="main svelte-1gr7v4t"><h1 class="svelte-1gr7v4t">BOO</h1></section>',1);function l(r){var a=i(),t=e(a);n(t,{}),m(2),s(r,a)}export{l as component};

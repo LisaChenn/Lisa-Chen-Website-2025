@@ -30,11 +30,11 @@ ${message}`;
       <div class="cards">
         <div class="card">
           <h2>Email</h2>
-          <a class="link" href="mailto:hello@yourdomain.com">lisachen077@gmail.com</a>
+          <a class="link" href="mailto:lisachen077@gmail.com">lisachen077@gmail.com</a>
         </div>
         <div class="card">
           <h2>Location</h2>
-          <p>Blacksburg, VA</p>
+          <p>Los Angeles, CA</p>
         </div>
         <div class="card">
           <h2>Social</h2>

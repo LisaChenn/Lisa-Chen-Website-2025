@@ -14,7 +14,7 @@ export type BlogPost = {
       date: '2025-10-06',
       description: 'Ethics and future of AI.',
       tags: ['AI', 'ethics'],
-      cover: '' // e.g. '/images/blog/hello.jpg'
+      cover: '' // e.g. '/images/wtv.jpg'
     },
     {
       slug: 'rlc-notes',

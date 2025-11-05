@@ -1,7 +1,6 @@
 <script lang="ts">
     import Navbar from '$lib/Navbar.svelte';
   
-    // If you want this to be dynamic, pass a Date or ISO string in via props.
     const published = new Date('2025-10-05');
     const publishedLabel = new Intl.DateTimeFormat('en-US', {
       dateStyle: 'long'
@@ -66,7 +65,7 @@
         </p>
       </section>
   
-      <!-- Optional: add references if you later link them -->
+      <!-- REFRENCES -->
       <footer class="post__footer">
         <h2 class="visually-hidden">References</h2>
         <ol class="refs">

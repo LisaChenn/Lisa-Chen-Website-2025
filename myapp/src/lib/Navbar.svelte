@@ -2,6 +2,8 @@
   import resume from '$lib/assets/resume.pdf';
   import { onMount } from 'svelte';
   let scroller: HTMLDivElement;
+  import { base } from '$app/paths';
+
 
   onMount(() => {
     // optional: auto-center on mount if the row is wider than the viewport
@@ -13,11 +15,11 @@
 <section class="main">
   <div class="nav-scroller" bind:this={scroller}>
     <ul class="nav-track">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="{base}/">Home</a></li>
+      <li><a href="{base}/about">About</a></li>
+      <li><a href="{base}/projects">Projects</a></li>
+      <li><a href="{base}/blog">Blog</a></li>
+      <li><a href="{base}/contact">Contact</a></li>
       <li><a href={resume} target="_blank" rel="noopener" type="application/pdf">Resume</a></li>
     </ul>
   </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
   let flipped = false;
+  import { base } from '$app/paths';
   const toggle = () => (flipped = !flipped);
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,7 +18,7 @@
         <p>
           <span class="purple">const</span> aboutMe <span class="cyan">=</span> 
         </p>
-          <a href="/about" class="button-28">Get Started</a>
+          <a href="{base}/about" class="button-28">Get Started</a>
           
         
       </div>
@@ -55,7 +56,6 @@ body {
 
 .content {
   height: 100vh;
-
   color: white;
   display: flex;
   justify-content: center;
@@ -116,6 +116,7 @@ body {
 
 
 .button-28 {
+  justify-self: center;
     appearance: none;
     background-color: #2c2c2c;
     border: 0;
@@ -141,7 +142,7 @@ body {
 
     /* Replace fixed 20% width with responsive limits */
     width: auto;
-    max-width: 80vw;
+    max-width: 90vw;
   }
 
   .button-28:hover {

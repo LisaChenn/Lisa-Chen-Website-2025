@@ -1,300 +1,209 @@
-<script>
-    import Navbar from '$lib/Navbar.svelte';
-  </script>
-  
-  <Navbar />
-  <section class="info">
-  </section>
-  <section class="cards-wrapper">
-    <div class="card-grid-space">
-      <div class="num">01</div>
-      <a class="card" href="https://github.com/LisaChenn/Lisa-Chen-Website-2025">
-        <div>
-          <h1>Lisa Chen's Website</h1>
-          <p>This is currently the product that you're on right now! </p>
-          <div class="date">Mar 2025 - Present</div>
-          <div class="tags">
-            <div class="tag">Svelte</div>
-            <div class="tag">TypeScript</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="card-grid-space">
-      <div class="num">02</div>
-      <a class="card" href="https://github.com/LisaChenn/LLM-Math-Generator">
-        <div>
-          <h1>Math Q LLM Generator Using LEAN4</h1>
-          <p>This is a reserach project; inside you'll find a lot of testing code that used to run my data</p>
-          <div class="date">May 2025 - Present</div>
-          <div class="tags">
-            <div class="tag">Python</div>
-            <div class="tag">LEAN4</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="card-grid-space">
-      <div class="num">03</div>
-      <a class="card" href="https://github.com/LisaChenn/CCHTSX">
-        <div>
-          <h1>Harmonized Tariff Schedule Classification Website</h1>
-          <p>Used to classify HTS codes using an LLM</p>
-          <div class="date">Jun 2025- Present</div>
-          <div class="tags">
-            <div class="tag">TypeScript</div>
-            <div class="tag">Mantine</div>
-            <div class="tag">React</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section><section class="info">
-  </section>
-  <section class="cards-wrapper">
-    <div class="card-grid-space">
-      <div class="num">04</div>
-      <a class="card" href="https://github.com/LorenSLiu/PioneerHacksV" >
-         <div>
-          <h1>NutriScan: Food Health/Allergen Tracker</h1>
-          <p> Built an application for food barcode scanning and nutrition tracking</p>
-          <div class="date">Jun 2024 - Aug 2024</div>
-          <div class="tags">
-            <div class="tag">EJS</div>
-            <div class="tag">JS</div>
-            <div class="tag">TypeScript</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="card-grid-space">
-      <div class="num">05</div>
-      <a class="card" href="https://github.com/PhantomCatz/RobotCode2024-Forte">
-        <div>
-          <h1>FRC Robot Competiton Code</h1>
-          <p>2024 FRC Forte Robot Code</p>
-          <div class="date">Aug 2023 - Apr 2024</div>
-          <div class="tags">
-            <div class="tag">Java</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="card-grid-space">
-      <div class="num">06</div>
-      <a class="card" href="https://github.com/PhantomCatz/2024IntegratedScoutingApps">
-        <div>
-          <h1>2024 FRC Scouting App</h1>
-          <p>Data collection, real-time analysis -- used for Strategy Subteam to decide on a gameplay</p>
-          <div class="date">Aug 2023- Oct 2024</div>
-          <div class="tags">
-            <div class="tag">ReactDOM</div>
-            <div class="tag">TypeScript</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
-  
-<style>
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+<script lang="ts">
+  import Navbar from '$lib/Navbar.svelte';
 
-  :root {
-    --color: #3c3163;
-    --transition-time: 0.5s;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
+  const projects = [
+    {
+      num: '01',
+      title: "Lisa Chen's Website",
+      desc: "This is currently the product that you're on right now!",
+      date: 'Mar 2025 – Present',
+      tags: ['Svelte', 'TypeScript'],
+      href: 'https://github.com/LisaChenn/Lisa-Chen-Website-2025'
+    },
+    {
+      num: '02',
+      title: 'Math Q LLM Generator Using LEAN4',
+      desc: "A research project; inside you'll find a lot of testing code used to run my data.",
+      date: 'May 2025 – Present',
+      tags: ['Python', 'LEAN4'],
+      href: 'https://github.com/LisaChenn/LLM-Math-Generator'
+    },
+    {
+      num: '03',
+      title: 'Harmonized Tariff Schedule Classification Website',
+      desc: 'Used to classify HTS codes using an LLM.',
+      date: 'Jun 2025 – Present',
+      tags: ['TypeScript', 'Mantine', 'React'],
+      href: 'https://github.com/LisaChenn/CCHTSX'
+    },
+    {
+      num: '04',
+      title: 'NutriScan: Food Health/Allergen Tracker',
+      desc: 'Built an application for food barcode scanning and nutrition tracking.',
+      date: 'Jun 2024 – Aug 2024',
+      tags: ['EJS', 'JS', 'TypeScript'],
+      href: 'https://github.com/LorenSLiu/PioneerHacksV'
+    },
+    {
+      num: '05',
+      title: 'FRC Robot Competition Code',
+      desc: '2024 FRC Forte robot code.',
+      date: 'Aug 2023 – Apr 2024',
+      tags: ['Java'],
+      href: 'https://github.com/PhantomCatz/RobotCode2024-Forte'
+    },
+    {
+      num: '06',
+      title: '2024 FRC Scouting App',
+      desc: 'Data collection, real-time analysis — used by the Strategy Subteam to decide on gameplay.',
+      date: 'Aug 2023 – Oct 2024',
+      tags: ['ReactDOM', 'TypeScript'],
+      href: 'https://github.com/PhantomCatz/2024IntegratedScoutingApps'
+    }
+  ];
+</script>
+
+<Navbar />
+
+<main class="wrap">
+  <div class="intro">
+    <div class="eyebrow">Selected Work</div>
+    <h1>Projects</h1>
+    <p>
+      Things I've built &mdash; from research code to full products, robotics to the occasional
+      weekend hack. (Note: Most of these repos are private).
+    </p>
+  </div>
+
+  <div class="proj-grid">
+    {#each projects as p}
+      <a class="proj-card" href={p.href} target="_blank" rel="noopener">
+        <div class="proj-card__top">
+          <span class="proj-card__num">{p.num}</span>
+          <span class="proj-card__date">{p.date}</span>
+        </div>
+        <h2>{p.title}</h2>
+        <p>{p.desc}</p>
+        <div class="proj-card__tags">
+          {#each p.tags as tag}
+            <span class="tag">{tag}</span>
+          {/each}
+        </div>
+      </a>
+    {/each}
+  </div>
+</main>
+
+<style>
+  .wrap {
+    background: var(--bg);
     min-height: 100vh;
-    font-family: 'Open Sans';
-    background: #fafafa;
-  }
-  
-  a {
-    color: inherit;
-  }
-  
-  .cards-wrapper {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 4rem;
-    padding: 4rem;
-    margin: 0 auto;
-    width: max-content;
-  }
-  
-  .card {
-    font-family: 'Heebo';
-    --bg-filter-opacity: 0.5;
-    background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
-    height: 20em;
-    width: 15em;
-    font-size: 1.5em;
-    color: white;
-    border-radius: 1em;
-    padding: 1em;
-    /*margin: 2em;*/
-    display: flex;
-    align-items: flex-end;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 0 5em -1em black;
-    transition: all, var(--transition-time);
-    position: relative;
-    overflow: hidden;
-    border: 10px solid #ccc;
-    text-decoration: none;
-  }
-  
-  .card:hover {
-    transform: rotate(0);
-  }
-  
-  .card h1 {
+    width: 100%;
     margin: 0;
-    font-size: 1.5em;
-    line-height: 1.2em;
+    padding: clamp(72px, 8vw, 120px) 2rem 4rem;
+    box-sizing: border-box;
+    max-width: 1160px;
+    margin-inline: auto;
   }
-  
-  .card p {
-    font-size: 0.75em;
-    font-family: 'Open Sans';
-    margin-top: 0.5em;
-    line-height: 2em;
+
+  .intro {
+    margin-bottom: 3.5rem;
   }
-  
-  .card .tags {
-    display: flex;
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
   }
-  
-  .card .tags .tag {
-    font-size: 0.75em;
-    background: rgba(255,255,255,0.5);
-    border-radius: 0.3rem;
-    padding: 0 0.5em;
-    margin-right: 0.5em;
-    line-height: 1.5em;
-    transition: all, var(--transition-time);
+
+  .intro h1 {
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    line-height: 1.1;
+    margin: 0 0 0.85rem;
   }
-  
-  .card:hover .tags .tag {
-    background: var(--color);
-    color: white;
+
+  .intro p {
+    max-width: 560px;
+    margin: 0;
+    color: var(--muted);
   }
-  
-  .card .date {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 0.75em;
-    padding: 1em;
-    line-height: 1em;
-    opacity: .8;
+
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
   }
-  
-  .card:before, .card:after {
-    content: '';
-    transform: scale(0);
-    transform-origin: top left;
-    border-radius: 50%;
-    position: absolute;
-    left: -50%;
-    top: -50%;
-    z-index: -5;
-    transition: all, var(--transition-time);
-    transition-timing-function: ease-in-out;
-  }
-  
-  .card:before {
-    background: #ddd;
-    width: 250%;
-    height: 250%;
-  }
-  
-  .card:after {
-    background: white;
-    width: 200%;
-    height: 200%;
-  }
-  
-  .card:hover {
-    color: var(--color);
-  }
-  
-  .card:hover:before, .card:hover:after {
-    transform: scale(1);
-  }
-  
-  .num{
-    color: aliceblue;
-  }
-  
-  .card-grid-space .num {
-    font-size: 3em;
-    margin-bottom: 1.2rem;
-    margin-left: 1rem;
-  }
-  
-  .info {
-    font-size: 1.2em;
-    display: flex;
-    padding: 1em 3em;
-    height: 3em;
-  }
-  
-  .info img {
-    height: 3em;
-    margin-right: 0.5em;
-  }
-  
-  .info h1 {
-    font-size: 1em;
-    font-weight: normal;
-  }
-  
-  /* MEDIA QUERIES */
-  @media screen and (max-width: 1285px) {
-    .cards-wrapper {
+
+  @media (max-width: 1000px) {
+    .proj-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
-  
-  @media screen and (max-width: 900px) {
-    .cards-wrapper {
+
+  @media (max-width: 640px) {
+    .proj-grid {
       grid-template-columns: 1fr;
     }
-    .info {
-      justify-content: center;
-    }
-    .card-grid-space .num {
-      margin-left: 0;
-     text-align: center;
-    }
   }
-  
-  @media screen and (max-width: 500px) {
-    .cards-wrapper {
-      padding: 4rem 2rem;
-    }
-    .card {
-      max-width: calc(100vw - 4rem);
-    }
+
+  .proj-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 230px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s ease, transform 0.2s ease;
   }
-  
-  @media screen and (max-width: 450px) {
-    .info {
-      display: block;
-      text-align: center;
-    }
-    .info h1 {
-      margin: 0;
-    }
+
+  .proj-card:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    transform: translateY(-2px);
   }
-</style>  
+
+  .proj-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.75rem;
+  }
+
+  .proj-card__num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: rgba(248, 244, 244, 0.35);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .proj-card__date {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  .proj-card h2 {
+    font-weight: 600;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin: 0 0 0.6rem;
+  }
+
+  .proj-card p {
+    font-size: 0.9rem;
+    color: rgba(248, 244, 244, 0.75);
+    margin: 0 0 1.2rem;
+    flex: 1;
+  }
+
+  .proj-card__tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    padding: 0.2rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: rgba(248, 244, 244, 0.75);
+  }
+</style>

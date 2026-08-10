@@ -6,6 +6,7 @@ yarn-error.log
 # SvelteKit build outputs
 .svelte-kit
 build
+docs
 
 # Firebase cache
 .firebase

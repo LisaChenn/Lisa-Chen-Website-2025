@@ -60,12 +60,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .card {
   perspective: 150rem;
   height: 20rem;
-  width: 30rem;
+  width: min(30rem, 100%);
   position: relative;
   cursor: pointer;
 }
@@ -77,7 +79,7 @@ body {
   top: 0;
   left: 0;
   margin: auto;
-  width: 30rem;
+  width: 100%;
   backface-visibility: hidden;
   border-radius: 12px;
   overflow: hidden;
@@ -99,8 +101,15 @@ body {
   height: 15rem;
   background-color: #1c1c1c;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  align-content: center;
   justify-content: center;
+  text-align: center;
+  gap: 0.3em;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  font-size: clamp(0.8rem, 4.2vw, 1rem);
 }
 
 .card__cta {
@@ -163,9 +172,13 @@ body {
 
   @media (max-width: 600px) {
     .content { gap: 0.75rem; }
+    .card { height: 18rem; }
+    .card__side { height: 14rem; }
+    .card__cont { height: 14rem; }
     .button-28 {
       width: 100%;
-      max-width: 300px; 
+      max-width: 300px;
+      padding: 14px 24px;
     }
   }
 

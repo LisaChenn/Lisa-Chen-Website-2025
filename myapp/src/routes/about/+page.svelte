@@ -162,6 +162,7 @@
           <div class="video-frame">
             <iframe
               src="https://www.youtube.com/embed/qJui-0I9NQw"
+              sandbox="allow-scripts allow-forms"
               title="Travel Vlog 1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -175,6 +176,7 @@
           <div class="video-frame">
             <iframe
               src="https://www.youtube.com/embed/TtTkm9OwOuM"
+              sandbox="allow-scripts allow-forms"
               title="Travel Vlog 2"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -240,23 +242,27 @@
     .hero {
       flex-direction: column;
     }
+    .hero-copy {
+      min-width: 0;
+    }
   }
 
   .portrait-col {
     flex: 0 0 auto;
+    width: min(260px, 100%);
   }
 
   .portrait-frame {
     background: var(--card);
     border: 6px solid var(--card);
     outline: 1px solid var(--border);
-    width: 260px;
+    width: 100%;
   }
 
   .portrait {
     display: block;
-    width: 260px;
-    height: 320px;
+    width: 100%;
+    aspect-ratio: 260 / 320;
     object-fit: cover;
   }
 
@@ -294,6 +300,12 @@
     text-align: justify;
   }
 
+  @media (max-width: 600px) {
+    .hero-copy p {
+      text-align: left;
+    }
+  }
+
   /* Experience */
   .experience h2 {
     font-weight: 600;
@@ -315,13 +327,6 @@
     border-bottom: none;
   }
 
-  @media (max-width: 700px) {
-    .role {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-
   .role-date {
     flex: 0 0 200px;
     color: var(--muted);
@@ -332,6 +337,19 @@
   .role-body {
     flex: 1;
     min-width: 280px;
+  }
+
+  @media (max-width: 700px) {
+    .role {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .role-date {
+      flex: 0 0 auto;
+    }
+    .role-body {
+      min-width: 0;
+    }
   }
 
   .role-body h3 {

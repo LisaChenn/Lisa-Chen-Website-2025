@@ -98,14 +98,18 @@ ${message}`;
 
 <style>
   :root {
-    --bg: #343434;
-    --fg: #ffffff;
-    --muted: #cfcfcf;
-    --card: #2b2b2b;
-    --accent: #f7f7f7;
-    --focus: #9ad0ff;
-    --border: #444;
-    --radius: 16px;
+    --bg: #201f1d;
+    --fg: #f8f4f4;
+    --muted: rgba(248, 244, 244, 0.65);
+    --card: #2a2927;
+    --accent: #e1ad66;
+    --focus: #e1ad66;
+    --border: rgba(248, 244, 244, 0.14);
+    --radius: 4px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
   }
 
   .main {

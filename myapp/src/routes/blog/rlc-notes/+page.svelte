@@ -53,13 +53,15 @@
   
   <style>
     :root {
-      --bg: #121212;
-      --card: #1c1c1c;
-      --text: #eaeaea;
-      --muted: #bdbdbd;
-      --radius: 18px;
+      --bg: #201f1d;
+      --card: #2a2927;
+      --text: #f8f4f4;
+      --muted: rgba(248, 244, 244, 0.65);
+      --radius: 4px;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
+
+    .post__title { font-family: 'Cormorant Garamond', Georgia, serif; }
   
     .wrap {
       background: var(--bg);

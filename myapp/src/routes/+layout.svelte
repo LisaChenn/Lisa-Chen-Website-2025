@@ -1,5 +1,6 @@
 <script lang="ts">
   import { base } from '$app/paths';
+  import Footer from '$lib/Footer.svelte';
   import '../app.css';
 </script>
 
@@ -14,3 +15,4 @@
 </svelte:head>
 
 <slot />
+<Footer />

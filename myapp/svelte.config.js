@@ -1,12 +1,12 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from "@sveltejs/adapter-static";
 
 export default {
   kit: {
     adapter: adapter({
-      pages: 'docs',
-      assets: 'docs',
-      fallback: '404.html'   // <-- required for GitHub Pages SPA
+      pages: "build",
+      assets: "build",
+      fallback: "index.html", // SPA fallback for Firebase Hosting rewrites
     }),
-    paths: { base: '/Lisa-Chen-Website-2025', relative: true }
-  }
+    paths: { relative: true },
+  },
 };

@@ -1,5 +1,6 @@
 <script lang="ts">
   import Navbar from '$lib/Navbar.svelte';
+  import { base } from '$app/paths';
 
   export let data: {
     posts: Array<{
@@ -69,7 +70,7 @@
 
     <div class="grid">
       {#each filtered as post}
-        <a class="card" href={`/blog/${post.slug}`}>
+        <a class="card" href={`${base}/blog/${post.slug}`}>
           {#if post.cover}
             <!-- svelte-ignore element_invalid_self_closing_tag -->
             <div class="thumb" style={`background-image:url(${post.cover})`} />
@@ -97,13 +98,14 @@
 
 <style>
   :root {
-    --bg: #343434; --fg: #ffffff; --muted: #cfcfcf; --card: #2b2b2b;
-    --border: #444; --accent: #f7f7f7; --focus: #9ad0ff; --radius: 16px;
+    --bg: #201f1d; --fg: #f8f4f4; --muted: rgba(248, 244, 244, 0.65); --card: #2a2927;
+    --border: rgba(248, 244, 244, 0.14); --accent: #e1ad66; --focus: #e1ad66; --radius: 4px;
   }
+  .header h1 { font-family: 'Cormorant Garamond', Georgia, serif; }
   .main {
     /* lock these for THIS page */
-    --bg: #343434;
-    --card: #2b2b2b;
+    --bg: #201f1d;
+    --card: #2a2927;
 
     background: var(--bg);
     min-height: 100svh;

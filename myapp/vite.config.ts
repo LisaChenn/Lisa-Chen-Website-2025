@@ -1,9 +1,6 @@
-import { defineConfig } from 'vite';
-import { sveltekit } from '@sveltejs/kit/vite';
-
-const base = '/Lisa-Chen-Website-2025'; // must match svelte.config.js
+import { defineConfig } from "vite";
+import { sveltekit } from "@sveltejs/kit/vite";
 
 export default defineConfig({
   plugins: [sveltekit()],
-  base
 });

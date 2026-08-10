@@ -1,6 +1,6 @@
 <script lang="ts">
   import resume from '$lib/assets/resume.pdf';
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { page } from '$app/stores';
   let scroller: HTMLElement;
   import { base } from '$app/paths';
@@ -20,17 +20,76 @@
   $: $page, (menuOpen = false);
 
   onMount(() => {
-    // optional: auto-center on mount if the row is wider than the viewport (desktop/tablet only)
     if (window.matchMedia('(min-width: 721px)').matches) {
       const dx = (scroller.scrollWidth - scroller.clientWidth) / 2;
       if (dx > 0) scroller.scrollLeft = dx;
     }
   });
+
+  // Easter egg: click the wordmark for a scramble + confetti burst
+  const WORDMARK = 'LISA CHEN';
+  const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!?*+';
+  const CONFETTI_COLORS = ['#e1ad66', '#f8f4f4', '#facb8d', '#7d5411'];
+
+  let displayText = WORDMARK;
+  let scrambleTimer: ReturnType<typeof setInterval>;
+  let confettiPieces: { id: number; x: number; y: number; rot: number; delay: number; color: string }[] = [];
+
+  function handleWordmarkClick(event: MouseEvent) {
+    event.preventDefault();
+    triggerEgg();
+  }
+
+  function triggerEgg() {
+    clearInterval(scrambleTimer);
+    let iteration = 0;
+    const totalIterations = WORDMARK.length * 3;
+    scrambleTimer = setInterval(() => {
+      displayText = WORDMARK.split('')
+        .map((char, i) => {
+          if (char === ' ') return ' ';
+          if (i < iteration / 3) return WORDMARK[i];
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        })
+        .join('');
+      iteration += 1;
+      if (iteration >= totalIterations) {
+        clearInterval(scrambleTimer);
+        displayText = WORDMARK;
+      }
+    }, 40);
+
+    confettiPieces = Array.from({ length: 24 }, (_, i) => ({
+      id: Date.now() + i,
+      x: Math.round((Math.random() - 0.5) * 220),
+      y: Math.round(Math.random() * -40 - 10),
+      rot: Math.round(Math.random() * 360),
+      delay: Math.round(Math.random() * 150) / 1000,
+      color: CONFETTI_COLORS[i % CONFETTI_COLORS.length]
+    }));
+    setTimeout(() => (confettiPieces = []), 1100);
+  }
+
+  onDestroy(() => {
+    clearInterval(scrambleTimer);
+  });
 </script>
 
 <section class="main">
   <div class="bar">
-    <a class="wordmark" href="{base}/">LISA CHEN</a>
+    <span class="wordmark-wrap">
+      <a class="wordmark" href="{base}/" on:click={handleWordmarkClick}>{displayText}</a>
+      {#if confettiPieces.length}
+        <span class="confetti-wrap" aria-hidden="true">
+          {#each confettiPieces as p (p.id)}
+            <span
+              class="confetti"
+              style="--x:{p.x}px; --y:{p.y}px; --rot:{p.rot}deg; --delay:{p.delay}s; --color:{p.color}"
+            ></span>
+          {/each}
+        </span>
+      {/if}
+    </span>
 
     <button
       class="menu-toggle"
@@ -79,6 +138,12 @@
   position: relative;
 }
 
+.wordmark-wrap {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
 .wordmark {
   font-family: var(--font-display);
   font-weight: 600;
@@ -87,9 +152,44 @@
   color: var(--text);
   text-transform: none;
   padding-bottom: 0;
-  flex: 0 0 auto;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .wordmark::after { display: none; }
+
+/* Easter egg: confetti burst on wordmark click */
+.confetti-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--color);
+  opacity: 0;
+  animation: confetti-burst 0.9s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), calc(var(--y) + 50px)) rotate(var(--rot)) scale(0.4);
+  }
+}
 
 /* Hamburger (mobile only) */
 .menu-toggle {
